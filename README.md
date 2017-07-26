@@ -1,5 +1,6 @@
 # Proyect
-(blob:http://imgur.com/db52c664-76c7-46c9-b098-ee90c768709c)
+
+![leaderboard](http://imgur.com/db52c664-76c7-46c9-b098-ee90c768709c)
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.1.
 
 ## Development server
