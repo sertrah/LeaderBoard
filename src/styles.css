@@ -1,1 +1,132 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+*{
+font-family: 'Raleway', sans-serif;
+}
+html{
+
+}
+body{
+background: #ECE9E6;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to bottom, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to bottom, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+padding: 0 10%;
+}
+.btn-back{
+    position: fixed !important;
+    top: 30px !important;
+    height: 3rem !important;
+    animation: .8s infinite beatHeart;
+    -webkit-animation-delay: 5s; /* Safari 4.0 - 8.0 */
+    animation-delay: 5s;
+}
+.btn-blue{
+  background: #3f51b5;
+  color :#fff !important;
+}
+.color-red{
+  color : #ca2014 !important;
+}
+.color-blue{
+  color : #3f51b5 !important;
+}
+.btn-gren{
+  background: #0f9b0f;
+  color :#fff !important;
+
+}
+.btn-center{
+  text-align: center !important;
+    margin: 0 auto !important;
+    display: block !important;
+    width: 182px !important;
+}
+.img-circle{
+    border-radius: 50%;
+    width: 220px;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* table */ 
+
+.md-sort-header button{
+  text-align: left !important;
+}
+table{
+  width:100%;
+  table-layout: fixed;
+}
+.tbl-header{
+  background-color: rgba(255,255,255,0.3);
+ }
+.tbl-content{
+  overflow-x:auto;
+  margin-top: 0px;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+th{
+  padding: 20px 15px;
+  text-align: left;
+  font-weight: 900;
+  font-size: 1rem;
+  color: #fff;
+  text-transform: uppercase;
+}
+.tbl-header{
+background: #232526;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to bottom, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to bottom, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+td{
+  padding: 15px;
+  text-align: left;
+  vertical-align:middle;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #000;
+  border-bottom: solid 1px rgba(255,255,255,0.1);
+}
+
+/* heart effect */
+
+@keyframes beatHeart {
+  0% {
+    transform: scale(1);
+    background: rgba(150, 26, 12, 0);
+  }
+  25% {
+    transform: scale(1.1);
+    background: rgb(142, 14, .2);
+  }
+  40% {
+    transform: scale(1);
+    background: rgb(142, 14, .4);
+  }
+  60% {
+    transform: scale(1.1);
+    background: rgb(142, 14, .8);
+  }
+  100% {
+    transform: scale(1);
+    background: rgb(142, 14, 0);
+    color:#fff;
+  }
+}
+
+
+/* for custom scrollbar for webkit browser*/
+
+::-webkit-scrollbar {
+    width: 6px;
+} 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+} 
+::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+}

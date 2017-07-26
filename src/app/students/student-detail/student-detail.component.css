@@ -1,0 +1,28 @@
+h1{
+    text-align: center;
+    font-size: 2.2rem;
+}
+
+.green{
+    background: #52c234;
+    background: -webkit-linear-gradient(to bottom, #061700, #52c234);
+    background: linear-gradient(to bottom, #336721, #52c234);
+}
+.red{
+background: #e52d27;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to bottom, #b31217, #e52d27);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to bottom, #b31217, #e52d27); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+.example-full-width{
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 250px;
+    font-size: 2rem;
+}
+.btn-gren{
+  display: block !important;
+  margin-left: auto  !important;
+}

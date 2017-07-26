@@ -1,0 +1,54 @@
+<div *ngIf="student" class="row">
+  <div class="col-xs-12">
+    <img [src]="student.photoUrl" alt="" class="img-circle">
+    <md-input-container class="example-full-width">
+      <input mdInput placeholder="Student's Name" [value]="student.fullName" #inputName>
+    </md-input-container>
+
+    <a md-raised-button routerLink="." (click)="updNameStudent(inputName.value)" class="btn-blue btn-center">Updated</a>
+
+    <h2>
+      Homeworks Progress
+    </h2>
+  </div>
+
+  <div class="row around-xs col-xs-12">
+
+    <div class="col-xs-12 col-md-4 ">
+      <h3>HomeWorks Delivered</h3>
+
+      <md-progress-bar class="" [color]="'determinate'" [mode]="mode" [value]="(student.deliveredHomework/5)*100">
+      </md-progress-bar>
+      <h1>{{student.deliveredHomework}}/5</h1>
+
+    </div>
+    <div  class="col-xs-12 col-md-4">
+      <h3>HomeWorks Missing</h3>
+      <md-progress-bar class=" " [color]="'warn'" [mode]="mode" [value]="(student.missingHomework/5)*100">
+      </md-progress-bar>
+      <h1>{{student.missingHomework}}/5</h1>
+
+    </div>
+  </div>
+
+
+  <button md-button (click)="openDialog()" [disabled]="lenghtResult" class=" btn-gren"> New notas </button>
+  <button  md-button (click)="goBack()" class="btn-back"><i class="material-icons">arrow_back</i></button>
+  <div  class="col-xs-12">
+  <h2 style="text-align:center;">History Student's Notes</h2>
+  <div class="tbl-content">
+    <table mdSort cellpadding="0" cellspacing="0" border="0">
+      <tr class="tbl-header">
+        <th md-sort-header="activity" class="md-sort-header">Activity</th>
+        <th md-sort-header="score" class="md-sort-header">score</th>
+        <th md-sort-header="description" class="md-sort-header">Description</th>
+      </tr>
+      <tr *ngFor="let result of student.studentResultses">
+        <td>{{result.taskName}}</td>
+        <td>{{result.score}}</td>
+        <td>{{result.description}}</td>
+      </tr>
+    </table>
+  </div>
+  </div>
+</div>
