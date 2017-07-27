@@ -25,6 +25,7 @@ export class DialogComponent implements OnInit {
   ngOnInit() {
   }
   createResult(taskName, score, description) {
+
     const newScore = +score;
      this.studentServiceService.createResultStudent(this.data.id, taskName, newScore, description).subscribe(
        (student: any) => {
