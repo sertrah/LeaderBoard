@@ -9,7 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 // material
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
+import {MdProgressSpinnerModule} from '@angular/material';
 
 
 @NgModule({
@@ -20,7 +20,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    StudentsModule
+    StudentsModule,
+    MdProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

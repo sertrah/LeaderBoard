@@ -74,7 +74,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"header-root\">\n  <img src=\"http://orig02.deviantart.net/6b78/f/2012/294/4/1/skrillex_pony_head__without_logo__by_tehawesomeface-d5ig8w4.png\"  \n    style=\"width:40px;\"alt=\"\">\n</div>\n<router-outlet></router-outlet>"
+module.exports = "<div class=\"header-root\">\n  <img src=\"http://orig02.deviantart.net/6b78/f/2012/294/4/1/skrillex_pony_head__without_logo__by_tehawesomeface-d5ig8w4.png\"  \n    style=\"width:40px;\"alt=\"\">\n</div>\n\n<router-outlet></router-outlet>\n  <div class=\"loading-overlay\" #spinnerElement style=\"opacity: 0;\">\n    <!-- md-spinner is short for <md-progress-circle mode=\"indeterminate\"></md-progress-circle> -->\n    <md-spinner></md-spinner>\n</div>"
 
 /***/ }),
 
@@ -83,6 +83,7 @@ module.exports = "<div class=\"header-root\">\n  <img src=\"http://orig02.devian
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -90,20 +91,75 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
 
 var AppComponent = (function () {
-    function AppComponent() {
+    function AppComponent(router, ngZone, renderer) {
+        var _this = this;
+        this.router = router;
+        this.ngZone = ngZone;
+        this.renderer = renderer;
+        this.loading = true;
+        router.events.subscribe(function (event) {
+            _this._navigationInterceptor(event);
+        });
     }
+    // Shows and hides the loading spinner during RouterEvent changes
+    // Shows and hides the loading spinner during RouterEvent changes
+    AppComponent.prototype._navigationInterceptor = function (event) {
+        var _this = this;
+        if (event instanceof __WEBPACK_IMPORTED_MODULE_1__angular_router__["d" /* NavigationStart */]) {
+            // We wanna run this function outside of Angular's zone to
+            // bypass change detection
+            this.ngZone.runOutsideAngular(function () {
+                // For simplicity we are going to turn opacity on / off
+                // you could add/remove a class for more advanced styling
+                // and enter/leave animation of the spinner
+                _this.renderer.setElementStyle(_this.spinnerElement.nativeElement, 'opacity', '1');
+            });
+        }
+        if (event instanceof __WEBPACK_IMPORTED_MODULE_1__angular_router__["e" /* NavigationEnd */]) {
+            this._hideSpinner();
+        }
+        // Set loading state to false in both of the below events to
+        // hide the spinner in case a request fails
+        if (event instanceof __WEBPACK_IMPORTED_MODULE_1__angular_router__["f" /* NavigationCancel */]) {
+            this._hideSpinner();
+        }
+        if (event instanceof __WEBPACK_IMPORTED_MODULE_1__angular_router__["g" /* NavigationError */]) {
+            this._hideSpinner();
+        }
+    };
+    AppComponent.prototype._hideSpinner = function () {
+        var _this = this;
+        // We wanna run this function outside of Angular's zone to
+        // bypass change detection,
+        this.ngZone.runOutsideAngular(function () {
+            // For simplicity we are going to turn opacity on / off
+            // you could add/remove a class for more advanced styling
+            // and enter/leave animation of the spinner
+            _this.renderer.setElementStyle(_this.spinnerElement.nativeElement, 'opacity', '0');
+        });
+    };
     return AppComponent;
 }());
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["y" /* ViewChild */])('spinnerElement'),
+    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["g" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["g" /* ElementRef */]) === "function" && _a || Object)
+], AppComponent.prototype, "spinnerElement", void 0);
 AppComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'app-root',
         template: __webpack_require__("../../../../../src/app/app.component.html"),
         styles: [__webpack_require__("../../../../../src/app/app.component.css")]
-    })
+    }),
+    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["j" /* NgZone */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["j" /* NgZone */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["_7" /* Renderer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["_7" /* Renderer */]) === "function" && _d || Object])
 ], AppComponent);
 
+var _a, _b, _c, _d;
 //# sourceMappingURL=app.component.js.map
 
 /***/ }),
@@ -118,6 +174,7 @@ AppComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__students_students_module__ = __webpack_require__("../../../../../src/app/students/students.module.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_routing_module__ = __webpack_require__("../../../../../src/app/app-routing.module.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_platform_browser_animations__ = __webpack_require__("../../../platform-browser/@angular/platform-browser/animations.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_material__ = __webpack_require__("../../../material/@angular/material.es5.js");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -131,6 +188,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 // material
+
 
 var AppModule = (function () {
     function AppModule() {
@@ -146,7 +204,8 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
             __WEBPACK_IMPORTED_MODULE_4__app_routing_module__["a" /* AppRoutingModule */],
             __WEBPACK_IMPORTED_MODULE_5__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
-            __WEBPACK_IMPORTED_MODULE_3__students_students_module__["a" /* StudentsModule */]
+            __WEBPACK_IMPORTED_MODULE_3__students_students_module__["a" /* StudentsModule */],
+            __WEBPACK_IMPORTED_MODULE_6__angular_material__["a" /* MdProgressSpinnerModule */]
         ],
         providers: [],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_2__app_component__["a" /* AppComponent */]]
@@ -216,28 +275,18 @@ var DialogComponent = (function () {
     DialogComponent.prototype.ngOnInit = function () {
     };
     DialogComponent.prototype.createResult = function (taskName, score, description) {
-        var _this = this;
-        var newScore = +score;
-        this.studentServiceService.createResultStudent(this.data.id, taskName, newScore, description).subscribe(function (student) {
-            var results = _this.data.studentResultses;
-            var sumOfScores = Object.keys(results).reduce(function (sum, key) { return sum + results[key].score; }, 0) + student.data.createStudentResults.score;
-            var avarageGrade = sumOfScores / (results.length + 1);
-            var newDeliverdHomework = 1 + _this.data.deliveredHomework;
-            var newMissingdHomework = _this.data.missingHomework - 1;
-            _this.studentServiceService.updResultStudent(_this.data.id, avarageGrade, newDeliverdHomework, newMissingdHomework).subscribe();
-            _this.dialog.closeAll();
-        });
+        console.log(score);
     };
     return DialogComponent;
 }());
 DialogComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'app-dialog',
         template: __webpack_require__("../../../../../src/app/students/dialog/dialog.component.html"),
         styles: [__webpack_require__("../../../../../src/app/students/dialog/dialog.component.css")]
     }),
-    __param(3, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["g" /* Inject */])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["h" /* MD_DIALOG_DATA */])),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["i" /* MdDialogRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["i" /* MdDialogRef */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["g" /* MdDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["g" /* MdDialog */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__student_service_service__["a" /* StudentServiceService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__student_service_service__["a" /* StudentServiceService */]) === "function" && _c || Object, Object])
+    __param(3, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["f" /* Inject */])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["i" /* MD_DIALOG_DATA */])),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["j" /* MdDialogRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["j" /* MdDialogRef */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["h" /* MdDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["h" /* MdDialog */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__student_service_service__["a" /* StudentServiceService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__student_service_service__["a" /* StudentServiceService */]) === "function" && _c || Object, Object])
 ], DialogComponent);
 
 var _a, _b, _c;
@@ -277,14 +326,14 @@ var HighlightDirective = (function () {
     return HighlightDirective;
 }());
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Input */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["l" /* Input */])(),
     __metadata("design:type", Object)
 ], HighlightDirective.prototype, "score", void 0);
 HighlightDirective = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["e" /* Directive */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* Directive */])({
         selector: '[appHighlight]'
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* ElementRef */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["_7" /* Renderer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["_7" /* Renderer */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["g" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["g" /* ElementRef */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["_7" /* Renderer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["_7" /* Renderer */]) === "function" && _b || Object])
 ], HighlightDirective);
 
 var _a, _b;
@@ -416,12 +465,12 @@ var StudentDetailComponent = (function () {
     return StudentDetailComponent;
 }());
 StudentDetailComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'app-student-detail',
         template: __webpack_require__("../../../../../src/app/students/student-detail/student-detail.component.html"),
         styles: [__webpack_require__("../../../../../src/app/students/student-detail/student-detail.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_common__["b" /* Location */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_common__["b" /* Location */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__student_service_service__["a" /* StudentServiceService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__student_service_service__["a" /* StudentServiceService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__angular_material__["g" /* MdDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_material__["g" /* MdDialog */]) === "function" && _d || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_common__["b" /* Location */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_common__["b" /* Location */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__student_service_service__["a" /* StudentServiceService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__student_service_service__["a" /* StudentServiceService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__angular_material__["h" /* MdDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_material__["h" /* MdDialog */]) === "function" && _d || Object])
 ], StudentDetailComponent);
 
 var _a, _b, _c, _d;
@@ -488,12 +537,12 @@ var StudentDialogComponent = (function () {
     return StudentDialogComponent;
 }());
 StudentDialogComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'app-student-dialog',
         template: __webpack_require__("../../../../../src/app/students/student-dialog/student-dialog.component.html"),
         styles: [__webpack_require__("../../../../../src/app/students/student-dialog/student-dialog.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["g" /* MdDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["g" /* MdDialog */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__student_service_service__["a" /* StudentServiceService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__student_service_service__["a" /* StudentServiceService */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["h" /* MdDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["h" /* MdDialog */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__student_service_service__["a" /* StudentServiceService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__student_service_service__["a" /* StudentServiceService */]) === "function" && _b || Object])
 ], StudentDialogComponent);
 
 var _a, _b;
@@ -577,7 +626,7 @@ var StudentServiceService = (function () {
     return StudentServiceService;
 }());
 StudentServiceService = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["j" /* Injectable */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["i" /* Injectable */])(),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_apollo_angular__["b" /* Apollo */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_apollo_angular__["b" /* Apollo */]) === "function" && _a || Object])
 ], StudentServiceService);
 
@@ -757,15 +806,15 @@ var StudentsComponent = (function () {
 }());
 __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["y" /* ViewChild */])('filter'),
-    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* ElementRef */]) === "function" && _a || Object)
+    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["g" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["g" /* ElementRef */]) === "function" && _a || Object)
 ], StudentsComponent.prototype, "filter", void 0);
 StudentsComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'app-students',
         template: __webpack_require__("../../../../../src/app/students/students.component.html"),
         styles: [__webpack_require__("../../../../../src/app/students/students.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_material__["g" /* MdDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_material__["g" /* MdDialog */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__student_service_service__["a" /* StudentServiceService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__student_service_service__["a" /* StudentServiceService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["k" /* NgZone */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["k" /* NgZone */]) === "function" && _e || Object])
+    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_material__["h" /* MdDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_material__["h" /* MdDialog */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__student_service_service__["a" /* StudentServiceService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__student_service_service__["a" /* StudentServiceService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["j" /* NgZone */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["j" /* NgZone */]) === "function" && _e || Object])
 ], StudentsComponent);
 
 function compare(a, b, isAsc) {
@@ -832,14 +881,14 @@ StudentsModule = __decorate([
         imports: [
             __WEBPACK_IMPORTED_MODULE_2__angular_common__["a" /* CommonModule */],
             __WEBPACK_IMPORTED_MODULE_8_apollo_angular__["a" /* ApolloModule */].forRoot(provideClient),
-            __WEBPACK_IMPORTED_MODULE_6__angular_http__["a" /* HttpModule */],
-            __WEBPACK_IMPORTED_MODULE_5__angular_material__["a" /* MdSlideToggleModule */],
-            __WEBPACK_IMPORTED_MODULE_5__angular_material__["b" /* MdSortModule */],
-            __WEBPACK_IMPORTED_MODULE_0__angular_forms__["a" /* FormsModule */],
-            __WEBPACK_IMPORTED_MODULE_5__angular_material__["c" /* MdInputModule */],
-            __WEBPACK_IMPORTED_MODULE_5__angular_material__["d" /* MdButtonModule */],
-            __WEBPACK_IMPORTED_MODULE_5__angular_material__["e" /* MdDialogModule */],
-            __WEBPACK_IMPORTED_MODULE_5__angular_material__["f" /* MdProgressBarModule */]
+            __WEBPACK_IMPORTED_MODULE_6__angular_http__["b" /* HttpModule */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_material__["b" /* MdSlideToggleModule */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_material__["c" /* MdSortModule */],
+            __WEBPACK_IMPORTED_MODULE_0__angular_forms__["b" /* FormsModule */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_material__["d" /* MdInputModule */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_material__["e" /* MdButtonModule */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_material__["f" /* MdDialogModule */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_material__["g" /* MdProgressBarModule */]
         ],
         providers: [__WEBPACK_IMPORTED_MODULE_9__student_service_service__["a" /* StudentServiceService */]],
         declarations: [__WEBPACK_IMPORTED_MODULE_3__students_component__["a" /* StudentsComponent */], __WEBPACK_IMPORTED_MODULE_4__student_detail_student_detail_component__["a" /* StudentDetailComponent */], __WEBPACK_IMPORTED_MODULE_10__dialog_dialog_component__["a" /* DialogComponent */], __WEBPACK_IMPORTED_MODULE_11__highlight_directive__["a" /* HighlightDirective */], __WEBPACK_IMPORTED_MODULE_12__student_dialog_student_dialog_component__["a" /* StudentDialogComponent */]],
