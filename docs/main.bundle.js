@@ -275,7 +275,17 @@ var DialogComponent = (function () {
     DialogComponent.prototype.ngOnInit = function () {
     };
     DialogComponent.prototype.createResult = function (taskName, score, description) {
-        console.log(score);
+        var _this = this;
+        var newScore = +score;
+        this.studentServiceService.createResultStudent(this.data.id, taskName, newScore, description).subscribe(function (student) {
+            var results = _this.data.studentResultses;
+            var sumOfScores = Object.keys(results).reduce(function (sum, key) { return sum + results[key].score; }, 0) + student.data.createStudentResults.score;
+            var avarageGrade = sumOfScores / (results.length + 1);
+            var newDeliverdHomework = 1 + _this.data.deliveredHomework;
+            var newMissingdHomework = _this.data.missingHomework - 1;
+            _this.studentServiceService.updResultStudent(_this.data.id, avarageGrade, newDeliverdHomework, newMissingdHomework).subscribe();
+            _this.dialog.closeAll();
+        });
     };
     return DialogComponent;
 }());
