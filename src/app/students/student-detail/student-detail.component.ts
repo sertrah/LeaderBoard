@@ -5,6 +5,7 @@ import { StudentServiceService } from '../student-service.service';
 
 import { MdDialog, MdDialogRef } from '@angular/material';
 import { DialogComponent } from './../dialog/dialog.component';
+import {Student} from './../student';
 @Component({
   selector: 'app-student-detail',
   templateUrl: './student-detail.component.html',
@@ -36,6 +37,12 @@ export class StudentDetailComponent implements OnInit {
   }
   deleteStudentResult(id) {
     this.studentService.delStudenResult(id).subscribe(console.log);
+        const results = this.student.studentResultses;
+        const sumOfScores = Object.keys(results).reduce((sum, key) => sum + results[key].score, 0);
+        const avarageGrade = sumOfScores / (results.length);
+        const newDeliverdHomework =  this.student.deliveredHomework -  1;
+        const newMissingdHomework = 1 + this.student.missingHomework ;
+        this.studentService.updResultStudent(this.student.id, avarageGrade, newDeliverdHomework, newMissingdHomework).subscribe();
   }
   openDialog() {
 

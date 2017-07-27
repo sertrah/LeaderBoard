@@ -25,18 +25,7 @@ export class DialogComponent implements OnInit {
   ngOnInit() {
   }
   createResult(taskName, score, description) {
-    const newScore = +score;
-    this.studentServiceService.createResultStudent(this.data.id, taskName, newScore, description).subscribe(
-      (student: any) => {
-        const results = this.data.studentResultses;
-        const sumOfScores = Object.keys(results).reduce((sum, key) => sum + results[key].score, 0) + student.data.createStudentResults.score;
-        const avarageGrade = sumOfScores / (results.length + 1);
-        const newDeliverdHomework = 1 + this.data.deliveredHomework;
-        const newMissingdHomework = this.data.missingHomework - 1;
-        this.studentServiceService.updResultStudent(this.data.id, avarageGrade, newDeliverdHomework, newMissingdHomework).subscribe();
-        this.dialog.closeAll();
-      }
-    );
+    console.log(score);
 
   }
 

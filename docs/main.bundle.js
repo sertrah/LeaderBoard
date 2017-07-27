@@ -178,7 +178,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/students/dialog/dialog.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n    <md-input-container class=\"example-full-width\">\n      <input mdInput placeholder=\"Task Name\" #taskName>\n    </md-input-container>\n        <md-input-container class=\"example-full-width\">\n      <input mdInput placeholder=\"Score\" #score>\n    </md-input-container>\n        <md-input-container class=\"example-full-width\">\n      <input mdInput placeholder=\"Description \" #description>\n    </md-input-container>\n<a md-raised-button routerLink=\".\" (click)=\"createResult(taskName.value, score.value, description.value);\" >Guardar</a>\n"
+module.exports = "\n    <md-input-container class=\"example-full-width\">\n      <input mdInput placeholder=\"Task Name\" #taskName>\n    </md-input-container>\n        <md-input-container class=\"example-full-width\">\n      <input mdInput  type=\"number\" placeholder=\"Score\" #score>\n    </md-input-container>\n        <md-input-container class=\"example-full-width\">\n      <input mdInput placeholder=\"Description \" #description>\n    </md-input-container>\n<a md-raised-button routerLink=\".\" (click)=\"createResult(taskName.value, score.value, description.value);\" >Guardar</a>\n"
 
 /***/ }),
 
@@ -265,11 +265,15 @@ var HighlightDirective = (function () {
     function HighlightDirective(elementRef, renderer) {
         this.elementRef = elementRef;
         this.renderer = renderer;
-        console.log(this.elementRef.nativeElement.innerHTML, this.elementRef.nativeElement.innerText);
+        console.log(elementRef);
+        console.log(this.elementRef.nativeElement.innerText);
         //    switch (this.elementRef.nativeElement) {
         // case 'fullName': return compare(a.fullName, b.fullName, isAsc);
         // }
     }
+    HighlightDirective.prototype.ngOnInit = function () {
+        console.log(this.elementRef.nativeElement.innerText);
+    };
     return HighlightDirective;
 }());
 __decorate([
@@ -391,6 +395,12 @@ var StudentDetailComponent = (function () {
     };
     StudentDetailComponent.prototype.deleteStudentResult = function (id) {
         this.studentService.delStudenResult(id).subscribe(console.log);
+        var results = this.student.studentResultses;
+        var sumOfScores = Object.keys(results).reduce(function (sum, key) { return sum + results[key].score; }, 0);
+        var avarageGrade = sumOfScores / (results.length);
+        var newDeliverdHomework = this.student.deliveredHomework - 1;
+        var newMissingdHomework = 1 + this.student.missingHomework;
+        this.studentService.updResultStudent(this.student.id, avarageGrade, newDeliverdHomework, newMissingdHomework).subscribe();
     };
     StudentDetailComponent.prototype.openDialog = function () {
         var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_5__dialog_dialog_component__["a" /* DialogComponent */], {
@@ -597,7 +607,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/students/students.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div>\r\n  <div class=\"row around-xs winner-container\">\r\n    <div class=\"col-xs-3\" *ngFor=\"let student of starStudent\">\r\n        <img [src]=\"student.photoUrl\" alt=\"\" class=\"img-winnder\">\r\n          <h1 style=\"text-align: center; color: #F44336\">{{student.avarageGrade}}</h1>\r\n          <h2 style=\"text-align: center; color: #9E9E9E\">{{student.fullName}}</h2>\r\n    </div>\r\n  </div>\r\n  <h1 style=\"text-align: center\"> leaderboard</h1> \r\n  <md-input-container floatPlaceholder=\"never\">\r\n    <input mdInput #filter placeholder=\"Filter users\">\r\n  </md-input-container>\r\n <br>\r\n  <md-slide-toggle (change)=\"show($event);\">compact view {{ slideStatus ? 'On': 'Off'}}</md-slide-toggle>\r\n  <br>\r\n  <button md-button (click)=\"openDialogCreateStudent(true)\" class=\"btn-gren\"> New student </button>\r\n  <div class=\"tbl-content\">\r\n    <table mdSort (mdSortChange)=\"sortData($event)\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\">\r\n      <tr class=\"tbl-header\">\r\n        <th  *ngFor=\"let column of columnTitle\" [style.width]=\"column.width\" md-sort-header=\"{{column.prop}}\" class=\"md-sort-header\">{{column.name}}</th>\r\n      </tr>\r\n      <tr *ngFor=\"let student of sortedData\" >\r\n        <td><img [src]=\"student.photoUrl\" width=\"50px\" style=\"border-radius:50%;\" alt=\"\"></td>\r\n        <td>{{student.fullName}}</td>\r\n        <td  appHighlight [score]=\"student.avarageGrade\" >{{student.avarageGrade}}</td>\r\n        <td [hidden]=\"slideStatus\">{{student.deliveredHomework}}</td>\r\n        <td [hidden]=\"slideStatus\">{{student.missingHomework}}</td>\r\n        <td>{{student.updatedAt | date }}</td>\r\n        <td>\r\n          <button md-button (click)=\"deleteStudent(student.id)\" class=\"color-red\"><i class=\"material-icons\">delete_forever</i> </button> \r\n          <button md-button (click)=\"detailStudent(student)\" class=\"color-blue\"> <i class=\"material-icons\">remove_red_eye</i> </button></td>\r\n      </tr>\r\n    </table>\r\n  </div>\r\n</div>"
+module.exports = "<div>\r\n  <div class=\"row around-xs winner-container\">\r\n    <div class=\"col-xs-3\" *ngFor=\"let student of starStudent\">\r\n        <img [src]=\"student.photoUrl\" alt=\"\" class=\"img-winnder\">\r\n          <h1 style=\"text-align: center; color: #F44336\">{{student.avarageGrade}}</h1>\r\n          <h2 style=\"text-align: center; color: #9E9E9E\">{{student.fullName}}</h2>\r\n    </div>\r\n  </div>\r\n  <h1 style=\"text-align: center\"> leaderboard</h1> \r\n  <md-input-container floatPlaceholder=\"never\">\r\n    <input mdInput #filter placeholder=\"Filter users\">\r\n  </md-input-container>\r\n <br>\r\n  <md-slide-toggle (change)=\"show($event);\">compact view {{ slideStatus ? 'On': 'Off'}}</md-slide-toggle>\r\n  <br>\r\n  <button md-button (click)=\"openDialogCreateStudent(true)\" class=\"btn-gren\"> New student </button>\r\n  <div class=\"tbl-content\">\r\n    <table *ngIf=\" sortedData\" mdSort (mdSortChange)=\"sortData($event)\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\">\r\n      <tr class=\"tbl-header\">\r\n        <th  *ngFor=\"let column of columnTitle\" [style.width]=\"column.width\" md-sort-header=\"{{column.prop}}\" class=\"md-sort-header\">{{column.name}}</th>\r\n      </tr>\r\n      <tr *ngFor=\"let student of sortedData\"  >\r\n        <td><img [src]=\"student.photoUrl\" width=\"50px\" style=\"border-radius:50%;\" alt=\"\"></td>\r\n        <td>{{student.fullName}}</td>\r\n        <td>{{student.avarageGrade  | number:'1.1' }}</td>\r\n        <td [hidden]=\"slideStatus\">{{student.deliveredHomework}}</td>\r\n        <td [hidden]=\"slideStatus\" [ngClass]=\"{'color-red': student.missingHomework > 0 }\">{{student.missingHomework}}</td>\r\n        <td>{{student.updatedAt | date }}</td>\r\n        <td>\r\n          <button md-button (click)=\"deleteStudent(student.id)\" class=\"color-red\"><i class=\"material-icons\">delete_forever</i> </button> \r\n          <button md-button (click)=\"detailStudent(student)\" class=\"color-blue\"> <i class=\"material-icons\">remove_red_eye</i> </button></td>\r\n      </tr>\r\n    </table>\r\n  </div>\r\n</div>"
 
 /***/ }),
 

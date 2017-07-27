@@ -10,7 +10,7 @@ import { Queries } from './queries';
 export class StudentServiceService {
 
   constructor(private apollo: Apollo) { }
-  getAllStudents() {
+  getAllStudents(): ApolloQueryObservable<any> {
     return this.apollo.watchQuery({
       query: Queries.getAllStudents,
       pollInterval: 1000
