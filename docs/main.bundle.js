@@ -74,7 +74,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"header-root\">\r\n  <img src=\"http://orig02.deviantart.net/6b78/f/2012/294/4/1/skrillex_pony_head__without_logo__by_tehawesomeface-d5ig8w4.png\"  \r\n    style=\"width:40px;\"alt=\"\">\r\n</div>\r\n<router-outlet></router-outlet>"
+module.exports = "<div class=\"header-root\">\n  <img src=\"http://orig02.deviantart.net/6b78/f/2012/294/4/1/skrillex_pony_head__without_logo__by_tehawesomeface-d5ig8w4.png\"  \n    style=\"width:40px;\"alt=\"\">\n</div>\n<router-outlet></router-outlet>"
 
 /***/ }),
 
@@ -178,7 +178,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/students/dialog/dialog.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n    <md-input-container class=\"example-full-width\">\r\n      <input mdInput placeholder=\"Task Name\" #taskName>\r\n    </md-input-container>\r\n        <md-input-container class=\"example-full-width\">\r\n      <input mdInput placeholder=\"Score\" #score>\r\n    </md-input-container>\r\n        <md-input-container class=\"example-full-width\">\r\n      <input mdInput placeholder=\"Description \" #description>\r\n    </md-input-container>\r\n<a md-raised-button routerLink=\".\" (click)=\"createResult(taskName.value, score.value, description.value);\" >Guardar</a>\r\n"
+module.exports = "\n    <md-input-container class=\"example-full-width\">\n      <input mdInput placeholder=\"Task Name\" #taskName>\n    </md-input-container>\n        <md-input-container class=\"example-full-width\">\n      <input mdInput placeholder=\"Score\" #score>\n    </md-input-container>\n        <md-input-container class=\"example-full-width\">\n      <input mdInput placeholder=\"Description \" #description>\n    </md-input-container>\n<a md-raised-button routerLink=\".\" (click)=\"createResult(taskName.value, score.value, description.value);\" >Guardar</a>\n"
 
 /***/ }),
 
@@ -437,7 +437,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/students/student-dialog/student-dialog.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\r\n\r\n  <h1>New Student</h1>\r\n  <div class=\"col-xs-12\">\r\n    <md-input-container class=\"example-full-width\" style=\"width:100%;\">\r\n      <input mdInput  placeholder=\"Full Name\" #fullName required>\r\n    </md-input-container>\r\n  \r\n\r\n  <md-input-container class=\"example-full-width\" style=\"width:100%;\" >\r\n    <input mdInput placeholder=\"Photo Url\" #photoUrl>\r\n  </md-input-container>\r\n  <a md-raised-button routerLink=\".\" (click)=\"saveStudent(fullName.value, photoUrl.value);\">Save</a>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"row\">\n\n  <h1>New Student</h1>\n  <div class=\"col-xs-12\">\n    <md-input-container class=\"example-full-width\" style=\"width:100%;\">\n      <input mdInput  placeholder=\"Full Name\" #fullName required>\n    </md-input-container>\n  \n\n  <md-input-container class=\"example-full-width\" style=\"width:100%;\" >\n    <input mdInput placeholder=\"Photo Url\" #photoUrl>\n  </md-input-container>\n  <a md-raised-button routerLink=\".\" (click)=\"saveStudent(fullName.value, photoUrl.value);\">Save</a>\n  </div>\n</div>\n"
 
 /***/ }),
 
