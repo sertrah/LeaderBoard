@@ -24,8 +24,8 @@ export class StudentsComponent implements OnInit {
 
   columnTitle = [];
   sortedData: Student[];
-  starStudent;
-  slideStatus: Student[];
+  starStudent: Student[];
+  slideStatus;
   temp: Student[];
   @ViewChild('filter') filter: ElementRef;
   constructor(private router: Router, public dialog: MdDialog, private studentService: StudentServiceService, private ngZone: NgZone) { }
