@@ -34,6 +34,7 @@ export class Queries {
             missingHomework
             updatedAt
             studentResultses{
+              id,
               taskName,
               score,
               description

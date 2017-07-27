@@ -236,8 +236,8 @@ DialogComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/students/dialog/dialog.component.html"),
         styles: [__webpack_require__("../../../../../src/app/students/dialog/dialog.component.css")]
     }),
-    __param(3, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* Inject */])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["g" /* MD_DIALOG_DATA */])),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["h" /* MdDialogRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["h" /* MdDialogRef */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["i" /* MdDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["i" /* MdDialog */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__student_service_service__["a" /* StudentServiceService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__student_service_service__["a" /* StudentServiceService */]) === "function" && _c || Object, Object])
+    __param(3, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["g" /* Inject */])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["h" /* MD_DIALOG_DATA */])),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["i" /* MdDialogRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["i" /* MdDialogRef */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["g" /* MdDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["g" /* MdDialog */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__student_service_service__["a" /* StudentServiceService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__student_service_service__["a" /* StudentServiceService */]) === "function" && _c || Object, Object])
 ], DialogComponent);
 
 var _a, _b, _c;
@@ -273,14 +273,14 @@ var HighlightDirective = (function () {
     return HighlightDirective;
 }());
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* Input */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Input */])(),
     __metadata("design:type", Object)
 ], HighlightDirective.prototype, "score", void 0);
 HighlightDirective = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["e" /* Directive */])({
         selector: '[appHighlight]'
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["f" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["f" /* ElementRef */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["g" /* Renderer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["g" /* Renderer */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* ElementRef */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["_7" /* Renderer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["_7" /* Renderer */]) === "function" && _b || Object])
 ], HighlightDirective);
 
 var _a, _b;
@@ -305,7 +305,7 @@ var Queries = (function () {
 
 Queries.getAllStudents = (_a = ["\n        query StudenQuery{\n        allStudents{\n            id\n            fullName\n            photoUrl\n            avarageGrade\n            deliveredHomework\n            missingHomework\n            updatedAt\n        }\n        }\n    "], _a.raw = ["\n        query StudenQuery{\n        allStudents{\n            id\n            fullName\n            photoUrl\n            avarageGrade\n            deliveredHomework\n            missingHomework\n            updatedAt\n        }\n        }\n    "], __WEBPACK_IMPORTED_MODULE_0_graphql_tag___default()(_a));
 Queries.createStudent = (_b = ["\n        mutation StudenQuery($fullName: String!, $photoUrl: String!){\n        createStudent(fullName: $fullName , photoUrl: $photoUrl){\n            fullName\n            photoUrl\n        }\n        }\n    "], _b.raw = ["\n        mutation StudenQuery($fullName: String!, $photoUrl: String!){\n        createStudent(fullName: $fullName , photoUrl: $photoUrl){\n            fullName\n            photoUrl\n        }\n        }\n    "], __WEBPACK_IMPORTED_MODULE_0_graphql_tag___default()(_b));
-Queries.getStudent = (_c = ["\n        query StudentQuery($id: ID!) {\n            Student(id: $id) {\n            id\n            fullName\n            photoUrl\n            avarageGrade\n            deliveredHomework\n            missingHomework\n            updatedAt\n            studentResultses{\n              taskName,\n              score,\n              description\n            }\n            }\n        }\n    "], _c.raw = ["\n        query StudentQuery($id: ID!) {\n            Student(id: $id) {\n            id\n            fullName\n            photoUrl\n            avarageGrade\n            deliveredHomework\n            missingHomework\n            updatedAt\n            studentResultses{\n              taskName,\n              score,\n              description\n            }\n            }\n        }\n    "], __WEBPACK_IMPORTED_MODULE_0_graphql_tag___default()(_c));
+Queries.getStudent = (_c = ["\n        query StudentQuery($id: ID!) {\n            Student(id: $id) {\n            id\n            fullName\n            photoUrl\n            avarageGrade\n            deliveredHomework\n            missingHomework\n            updatedAt\n            studentResultses{\n              id,\n              taskName,\n              score,\n              description\n            }\n            }\n        }\n    "], _c.raw = ["\n        query StudentQuery($id: ID!) {\n            Student(id: $id) {\n            id\n            fullName\n            photoUrl\n            avarageGrade\n            deliveredHomework\n            missingHomework\n            updatedAt\n            studentResultses{\n              id,\n              taskName,\n              score,\n              description\n            }\n            }\n        }\n    "], __WEBPACK_IMPORTED_MODULE_0_graphql_tag___default()(_c));
 Queries.createStudentResult = (_d = ["\n        mutation createStudentResults($id: ID!, $taskName: String! , $score: Float, $description: String) {\n        createStudentResults(studentId: $id, taskName: $taskName , score: $score, description: $description){\n            taskName\n            score\n            description\n        }\n        }\n    "], _d.raw = ["\n        mutation createStudentResults($id: ID!, $taskName: String! , $score: Float, $description: String) {\n        createStudentResults(studentId: $id, taskName: $taskName , score: $score, description: $description){\n            taskName\n            score\n            description\n        }\n        }\n    "], __WEBPACK_IMPORTED_MODULE_0_graphql_tag___default()(_d));
 Queries.updStudent = (_e = ["\n    mutation updateStudent($id: ID!, $missingHomework: Int , $deliveredHomework: Int, $avarageGrade: Float, $fullName: String) {\n    updateStudent(id: $id, missingHomework: $missingHomework , deliveredHomework: $deliveredHomework, avarageGrade: $avarageGrade, fullName: $fullName){\n        id\n        deliveredHomework\n        missingHomework\n        avarageGrade\n        fullName\n    }\n    }\n"], _e.raw = ["\n    mutation updateStudent($id: ID!, $missingHomework: Int , $deliveredHomework: Int, $avarageGrade: Float, $fullName: String) {\n    updateStudent(id: $id, missingHomework: $missingHomework , deliveredHomework: $deliveredHomework, avarageGrade: $avarageGrade, fullName: $fullName){\n        id\n        deliveredHomework\n        missingHomework\n        avarageGrade\n        fullName\n    }\n    }\n"], __WEBPACK_IMPORTED_MODULE_0_graphql_tag___default()(_e));
 Queries.delStudentResult = (_f = ["\n    mutation deleteStudentResults($id: ID!) {\n        deleteStudentResults(id: $id){\n        id\n        }\n    }\n    "], _f.raw = ["\n    mutation deleteStudentResults($id: ID!) {\n        deleteStudentResults(id: $id){\n        id\n        }\n    }\n    "], __WEBPACK_IMPORTED_MODULE_0_graphql_tag___default()(_f));
@@ -336,7 +336,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/students/student-detail/student-detail.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"student\" class=\"row\">\r\n  <div class=\"col-xs-12\">\r\n    <img [src]=\"student.photoUrl\" alt=\"\" class=\"img-circle\">\r\n    <md-input-container class=\"example-full-width\">\r\n      <input mdInput placeholder=\"Student's Name\" [value]=\"student.fullName\" #inputName>\r\n    </md-input-container>\r\n\r\n    <a md-raised-button routerLink=\".\" (click)=\"updNameStudent(inputName.value)\" class=\"btn-blue btn-center\">Updated</a>\r\n\r\n    <h2>\r\n      Homeworks Progress\r\n    </h2>\r\n  </div>\r\n\r\n  <div class=\"row around-xs col-xs-12\">\r\n\r\n    <div class=\"col-xs-12 col-md-4 \">\r\n      <h3>HomeWorks Delivered</h3>\r\n\r\n      <md-progress-bar class=\"\" [color]=\"'determinate'\" [mode]=\"mode\" [value]=\"(student.deliveredHomework/5)*100\">\r\n      </md-progress-bar>\r\n      <h1>{{student.deliveredHomework}}/5</h1>\r\n\r\n    </div>\r\n    <div  class=\"col-xs-12 col-md-4\">\r\n      <h3>HomeWorks Missing</h3>\r\n      <md-progress-bar class=\" \" [color]=\"'warn'\" [mode]=\"mode\" [value]=\"(student.missingHomework/5)*100\">\r\n      </md-progress-bar>\r\n      <h1>{{student.missingHomework}}/5</h1>\r\n\r\n    </div>\r\n  </div>\r\n\r\n\r\n  <button md-button (click)=\"openDialog()\" [disabled]=\"lenghtResult\" class=\" btn-gren\"> New notas </button>\r\n  <button  md-button (click)=\"goBack()\" class=\"btn-back\"><i class=\"material-icons\">arrow_back</i></button>\r\n  <div  class=\"col-xs-12\">\r\n  <h2 style=\"text-align:center;\">History Student's Notes</h2>\r\n  <div class=\"tbl-content\">\r\n    <table mdSort cellpadding=\"0\" cellspacing=\"0\" border=\"0\">\r\n      <tr class=\"tbl-header\">\r\n        <th md-sort-header=\"activity\" class=\"md-sort-header\">Activity</th>\r\n        <th md-sort-header=\"score\" class=\"md-sort-header\">score</th>\r\n        <th md-sort-header=\"description\" class=\"md-sort-header\">Description</th>\r\n      </tr>\r\n      <tr *ngFor=\"let result of student.studentResultses\">\r\n        <td>{{result.taskName}}</td>\r\n        <td>{{result.score}}</td>\r\n        <td>{{result.description}}</td>\r\n      </tr>\r\n    </table>\r\n  </div>\r\n  </div>\r\n</div>"
+module.exports = "<div *ngIf=\"student\" class=\"row\">\r\n  <div class=\"col-xs-12\">\r\n    <img [src]=\"student.photoUrl\" alt=\"\" class=\"img-circle\">\r\n    <md-input-container class=\"example-full-width\">\r\n      <input mdInput placeholder=\"Student's Name\" [value]=\"student.fullName\" #inputName>\r\n    </md-input-container>\r\n\r\n    <a md-raised-button routerLink=\".\" (click)=\"updNameStudent(inputName.value)\" class=\"btn-blue btn-center\">Updated</a>\r\n\r\n    <h2>\r\n      Homeworks Progress\r\n    </h2>\r\n  </div>\r\n\r\n  <div class=\"row around-xs col-xs-12\">\r\n\r\n    <div class=\"col-xs-12 col-md-4 \">\r\n      <h3>HomeWorks Delivered</h3>\r\n\r\n      <md-progress-bar class=\"\" [color]=\"'determinate'\" [mode]=\"mode\" [value]=\"(student.deliveredHomework/5)*100\">\r\n      </md-progress-bar>\r\n      <h1>{{student.deliveredHomework}}/5</h1>\r\n\r\n    </div>\r\n    <div  class=\"col-xs-12 col-md-4\">\r\n      <h3>HomeWorks Missing</h3>\r\n      <md-progress-bar class=\" \" [color]=\"'warn'\" [mode]=\"mode\" [value]=\"(student.missingHomework/5)*100\">\r\n      </md-progress-bar>\r\n      <h1>{{student.missingHomework}}/5</h1>\r\n\r\n    </div>\r\n  </div>\r\n\r\n\r\n  <button md-button (click)=\"openDialog()\" [disabled]=\"lenghtResult\" class=\" btn-gren\"> New notas </button>\r\n  <button  md-button (click)=\"goBack()\" class=\"btn-back\"><i class=\"material-icons\">arrow_back</i></button>\r\n  <div  class=\"col-xs-12\">\r\n  <h2 style=\"text-align:center;\">History Student's Notes</h2>\r\n  <div class=\"tbl-content\">\r\n    <table mdSort cellpadding=\"0\" cellspacing=\"0\" border=\"0\">\r\n      <tr class=\"tbl-header\">\r\n        <th md-sort-header=\"activity\" class=\"md-sort-header\">Activity</th>\r\n        <th md-sort-header=\"score\" class=\"md-sort-header\">score</th>\r\n        <th md-sort-header=\"description\" class=\"md-sort-header\">Description</th>\r\n        <th md-sort-header=\"action\" class=\"md-sort-header\"> </th>\r\n      </tr>\r\n      <tr *ngFor=\"let result of student.studentResultses\">\r\n        <td>{{result.taskName}}</td>\r\n        <td>{{result.score}}</td>\r\n        <td>{{result.description}}</td>\r\n        <td><button md-button (click)=\"deleteStudentResult(result.id)\" class=\"color-red\"><i class=\"material-icons\">delete_forever</i> </button> </td>\r\n      </tr>\r\n    </table>\r\n  </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -389,6 +389,9 @@ var StudentDetailComponent = (function () {
     StudentDetailComponent.prototype.updNameStudent = function (fullName) {
         this.studentService.updStudent(this.student.id, fullName).subscribe(console.log);
     };
+    StudentDetailComponent.prototype.deleteStudentResult = function (id) {
+        this.studentService.delStudenResult(id).subscribe(console.log);
+    };
     StudentDetailComponent.prototype.openDialog = function () {
         var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_5__dialog_dialog_component__["a" /* DialogComponent */], {
             data: this.student,
@@ -408,7 +411,7 @@ StudentDetailComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/students/student-detail/student-detail.component.html"),
         styles: [__webpack_require__("../../../../../src/app/students/student-detail/student-detail.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_common__["b" /* Location */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_common__["b" /* Location */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__student_service_service__["a" /* StudentServiceService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__student_service_service__["a" /* StudentServiceService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__angular_material__["i" /* MdDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_material__["i" /* MdDialog */]) === "function" && _d || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_common__["b" /* Location */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_common__["b" /* Location */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__student_service_service__["a" /* StudentServiceService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__student_service_service__["a" /* StudentServiceService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__angular_material__["g" /* MdDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_material__["g" /* MdDialog */]) === "function" && _d || Object])
 ], StudentDetailComponent);
 
 var _a, _b, _c, _d;
@@ -447,6 +450,7 @@ module.exports = "<div class=\"row\">\n\n  <h1>New Student</h1>\n  <div class=\"
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__student_service_service__ = __webpack_require__("../../../../../src/app/students/student-service.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__("../../../material/@angular/material.es5.js");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StudentDialogComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -459,14 +463,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var StudentDialogComponent = (function () {
-    function StudentDialogComponent(studentServiceService) {
+    function StudentDialogComponent(dialog, studentServiceService) {
+        this.dialog = dialog;
         this.studentServiceService = studentServiceService;
     }
     StudentDialogComponent.prototype.ngOnInit = function () {
     };
     StudentDialogComponent.prototype.saveStudent = function (fullName, photoUrl) {
         this.studentServiceService.createStudent(fullName, photoUrl).subscribe(console.log);
+        this.dialog.closeAll();
     };
     return StudentDialogComponent;
 }());
@@ -476,10 +483,10 @@ StudentDialogComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/students/student-dialog/student-dialog.component.html"),
         styles: [__webpack_require__("../../../../../src/app/students/student-dialog/student-dialog.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__student_service_service__["a" /* StudentServiceService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__student_service_service__["a" /* StudentServiceService */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["g" /* MdDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["g" /* MdDialog */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__student_service_service__["a" /* StudentServiceService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__student_service_service__["a" /* StudentServiceService */]) === "function" && _b || Object])
 ], StudentDialogComponent);
 
-var _a;
+var _a, _b;
 //# sourceMappingURL=student-dialog.component.js.map
 
 /***/ }),
@@ -560,7 +567,7 @@ var StudentServiceService = (function () {
     return StudentServiceService;
 }());
 StudentServiceService = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["l" /* Injectable */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["j" /* Injectable */])(),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_apollo_angular__["b" /* Apollo */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_apollo_angular__["b" /* Apollo */]) === "function" && _a || Object])
 ], StudentServiceService);
 
@@ -590,7 +597,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/students/students.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div>\r\n  <div class=\"row around-xs winner-container\">\r\n    <div class=\"col-xs-3\" *ngFor=\"let student of starStudent\">\r\n        <img [src]=\"student.photoUrl\" alt=\"\" class=\"img-winnder\">\r\n          <h1 style=\"text-align: center; color: #F44336\">{{student.avarageGrade}}</h1>\r\n          <h2 style=\"text-align: center; color: #9E9E9E\">{{student.fullName}}</h2>\r\n    </div>\r\n  </div>\r\n  <h1 style=\"text-align: center\"> History of Students </h1>\r\n  <md-input-container floatPlaceholder=\"never\">\r\n    <input mdInput #filter placeholder=\"Filter users\">\r\n  </md-input-container>\r\n <br>\r\n  <md-slide-toggle (change)=\"show($event);\">compact view {{ slideStatus ? 'On': 'Off'}}</md-slide-toggle>\r\n  <br>\r\n  <button md-button (click)=\"openDialogCreateStudent(true)\" class=\"btn-gren\"> New student </button>\r\n  <div class=\"tbl-content\">\r\n    <table mdSort (mdSortChange)=\"sortData($event)\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\">\r\n      <tr class=\"tbl-header\">\r\n        <th  *ngFor=\"let column of columnTitle\" [style.width]=\"column.width\" md-sort-header=\"{{column.prop}}\" class=\"md-sort-header\">{{column.name}}</th>\r\n      </tr>\r\n      <tr *ngFor=\"let student of sortedData\" >\r\n        <td><img [src]=\"student.photoUrl\" width=\"50px\" style=\"border-radius:50%;\" alt=\"\"></td>\r\n        <td>{{student.fullName}}</td>\r\n        <td  appHighlight [score]=\"student.avarageGrade\" >{{student.avarageGrade}}</td>\r\n        <td [hidden]=\"slideStatus\">{{student.deliveredHomework}}</td>\r\n        <td [hidden]=\"slideStatus\">{{student.missingHomework}}</td>\r\n        <td>{{student.updatedAt | date }}</td>\r\n        <td>\r\n          <button md-button (click)=\"deleteStudent(student.id)\" class=\"color-red\"><i class=\"material-icons\">delete_forever</i> </button> \r\n          <button md-button (click)=\"detailStudent(student)\" class=\"color-blue\"> <i class=\"material-icons\">remove_red_eye</i> </button></td>\r\n      </tr>\r\n    </table>\r\n  </div>\r\n</div>"
+module.exports = "<div>\r\n  <div class=\"row around-xs winner-container\">\r\n    <div class=\"col-xs-3\" *ngFor=\"let student of starStudent\">\r\n        <img [src]=\"student.photoUrl\" alt=\"\" class=\"img-winnder\">\r\n          <h1 style=\"text-align: center; color: #F44336\">{{student.avarageGrade}}</h1>\r\n          <h2 style=\"text-align: center; color: #9E9E9E\">{{student.fullName}}</h2>\r\n    </div>\r\n  </div>\r\n  <h1 style=\"text-align: center\"> leaderboard</h1> \r\n  <md-input-container floatPlaceholder=\"never\">\r\n    <input mdInput #filter placeholder=\"Filter users\">\r\n  </md-input-container>\r\n <br>\r\n  <md-slide-toggle (change)=\"show($event);\">compact view {{ slideStatus ? 'On': 'Off'}}</md-slide-toggle>\r\n  <br>\r\n  <button md-button (click)=\"openDialogCreateStudent(true)\" class=\"btn-gren\"> New student </button>\r\n  <div class=\"tbl-content\">\r\n    <table mdSort (mdSortChange)=\"sortData($event)\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\">\r\n      <tr class=\"tbl-header\">\r\n        <th  *ngFor=\"let column of columnTitle\" [style.width]=\"column.width\" md-sort-header=\"{{column.prop}}\" class=\"md-sort-header\">{{column.name}}</th>\r\n      </tr>\r\n      <tr *ngFor=\"let student of sortedData\" >\r\n        <td><img [src]=\"student.photoUrl\" width=\"50px\" style=\"border-radius:50%;\" alt=\"\"></td>\r\n        <td>{{student.fullName}}</td>\r\n        <td  appHighlight [score]=\"student.avarageGrade\" >{{student.avarageGrade}}</td>\r\n        <td [hidden]=\"slideStatus\">{{student.deliveredHomework}}</td>\r\n        <td [hidden]=\"slideStatus\">{{student.missingHomework}}</td>\r\n        <td>{{student.updatedAt | date }}</td>\r\n        <td>\r\n          <button md-button (click)=\"deleteStudent(student.id)\" class=\"color-red\"><i class=\"material-icons\">delete_forever</i> </button> \r\n          <button md-button (click)=\"detailStudent(student)\" class=\"color-blue\"> <i class=\"material-icons\">remove_red_eye</i> </button></td>\r\n      </tr>\r\n    </table>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -739,8 +746,8 @@ var StudentsComponent = (function () {
     return StudentsComponent;
 }());
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* ViewChild */])('filter'),
-    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["f" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["f" /* ElementRef */]) === "function" && _a || Object)
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["y" /* ViewChild */])('filter'),
+    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* ElementRef */]) === "function" && _a || Object)
 ], StudentsComponent.prototype, "filter", void 0);
 StudentsComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Component */])({
@@ -748,7 +755,7 @@ StudentsComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/students/students.component.html"),
         styles: [__webpack_require__("../../../../../src/app/students/students.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_material__["i" /* MdDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_material__["i" /* MdDialog */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__student_service_service__["a" /* StudentServiceService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__student_service_service__["a" /* StudentServiceService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* NgZone */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* NgZone */]) === "function" && _e || Object])
+    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_material__["g" /* MdDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_material__["g" /* MdDialog */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__student_service_service__["a" /* StudentServiceService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__student_service_service__["a" /* StudentServiceService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["k" /* NgZone */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["k" /* NgZone */]) === "function" && _e || Object])
 ], StudentsComponent);
 
 function compare(a, b, isAsc) {

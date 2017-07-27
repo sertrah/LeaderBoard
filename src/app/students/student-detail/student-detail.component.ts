@@ -12,7 +12,7 @@ import { DialogComponent } from './../dialog/dialog.component';
 })
 export class StudentDetailComponent implements OnInit {
   student;
-  lenghtResult ;
+  lenghtResult;
   constructor(private route: ActivatedRoute,
     private location: Location,
     private studentService: StudentServiceService,
@@ -23,7 +23,7 @@ export class StudentDetailComponent implements OnInit {
     this.route.paramMap.subscribe((params: Params) => {
       this.studentService.getStudent(params.get('id')).subscribe(({ data, loading }: any) => {
         this.student = data.Student;
-        this.lenghtResult  = data.Student.studentResultses.length > 4 ? true : false;
+        this.lenghtResult = data.Student.studentResultses.length > 4 ? true : false;
       });
     });
 
@@ -32,7 +32,10 @@ export class StudentDetailComponent implements OnInit {
     this.location.back();
   }
   updNameStudent(fullName) {
-      this.studentService.updStudent(this.student.id, fullName).subscribe(console.log);
+    this.studentService.updStudent(this.student.id, fullName).subscribe(console.log);
+  }
+  deleteStudentResult(id) {
+    this.studentService.delStudenResult(id).subscribe(console.log);
   }
   openDialog() {
 

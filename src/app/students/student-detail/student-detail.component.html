@@ -42,11 +42,13 @@
         <th md-sort-header="activity" class="md-sort-header">Activity</th>
         <th md-sort-header="score" class="md-sort-header">score</th>
         <th md-sort-header="description" class="md-sort-header">Description</th>
+        <th md-sort-header="action" class="md-sort-header"> </th>
       </tr>
       <tr *ngFor="let result of student.studentResultses">
         <td>{{result.taskName}}</td>
         <td>{{result.score}}</td>
         <td>{{result.description}}</td>
+        <td><button md-button (click)="deleteStudentResult(result.id)" class="color-red"><i class="material-icons">delete_forever</i> </button> </td>
       </tr>
     </table>
   </div>
